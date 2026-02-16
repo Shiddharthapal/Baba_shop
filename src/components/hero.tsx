@@ -18,7 +18,7 @@ export function Hero() {
       <div className="absolute inset-0 flex items-center justify-end">
         <div className="w-full md:w-1/2 px-6 md:px-12 pb-12 text-right relative">
           {/* Small Tagline Badge */}
-          <span className="inline-block mb-6 px-4 py-2 bg-secondary/70 text-gray-100 text-sm font-semibold rounded-full tracking-wide">
+          <span className="inline-block mb-6 px-4 py-2 bg-gradient-to-l from-secondary to-yellow-400 text-gray-800 text-sm font-semibold rounded-full tracking-wide">
             ইন্ডাস্ট্রিয়াল মেশিন সলিউশন
           </span>
 

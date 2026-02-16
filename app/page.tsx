@@ -4,7 +4,7 @@ import { Capabilities } from "@/components/capabilities"
 import { Quality } from "@/components/quality"
 import { Certifications } from "@/components/certifications"
 import { About } from "@/components/about"
-import { Contact } from "@/components/contact"
+import { Contact } from "@/components/contract"
 import { Footer } from "@/components/footer"
 import { Products } from "@/components/products"
 

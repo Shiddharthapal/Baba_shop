@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export function Quality() {
   return (
-    <section id="quality" className="bg-background py-16 md:py-24">
+    <section id="quality" className="bg-background py-16 md:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="relative h-96 min-h-96 overflow-hidden rounded-lg md:h-full">
