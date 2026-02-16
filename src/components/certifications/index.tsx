@@ -45,7 +45,7 @@ export function Certifications() {
             return (
               <div
                 key={cert.title}
-                className="rounded-lg border border-border bg-background p-8 text-center transition-colors hover:border-secondary"
+                className="rounded-lg border border-border bg-background p-4 text-center transition-colors hover:border-secondary"
               >
                 <Icon className="mx-auto mb-4 h-12 w-12 text-secondary" />
                 <h3 className="mb-2 text-xl font-bold text-foreground">
