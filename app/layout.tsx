@@ -7,7 +7,7 @@ const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Roberts Manufacturing - Precision Industrial Solutions",
+  title: "দুই ভাই ইঞ্জিনিয়ারিং ওয়ার্কশপ",
   description:
     "Dedicated to service, driven by excellence. Better, faster, smarter manufacturing solutions.",
   generator: "v0.app",
