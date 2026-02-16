@@ -45,9 +45,9 @@ const capabilities = [
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className="bg-card pb-14">
+    <section id="capabilities" className="bg-card pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
+        <div className="mb-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
             আমাদের সক্ষমতা
           </h2>
@@ -57,7 +57,7 @@ export function Capabilities() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 h-57 custom-scrollbar">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 h-65 bg-[hsl(206,28%,11%)] p-5  custom-scrollbar">
           {capabilities.map((capability) => (
             <div key={capability.title} className="flex gap-4">
               <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-secondary" />

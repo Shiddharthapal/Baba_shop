@@ -1,12 +1,12 @@
-﻿import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { Capabilities } from "@/components/capabilities"
-import { Quality } from "@/components/quality"
-import { Certifications } from "@/components/certifications"
-import { About } from "@/components/about"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
-import { Products } from "@/components/products"
+﻿import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { Capabilities } from "@/components/capabilities";
+import { Quality } from "@/components/quality";
+import { Certifications } from "@/components/certifications";
+import { About } from "@/components/about";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
+import { Products } from "@/components/products";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <Header />
       <div className="pt-16">
         <Hero />
-        <Products/>
+        <Products />
         <Capabilities />
         <Quality />
         <Certifications />
@@ -23,5 +23,5 @@ export default function Home() {
       </div>
       <Footer />
     </main>
-  )
+  );
 }
