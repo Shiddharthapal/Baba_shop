@@ -8,12 +8,12 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-  { label: "পণ্যসমূহ", href: "#capabilities" },
-  { label: "নীতি", href: "#certifications" },
-  { label: "গুণমান", href: "#quality" },
-  { label: "আমাদের সম্পর্কে", href: "#about" },
-  { label: "যোগাযোগ", href: "#contact" },
-];
+    { label: "পণ্যসমূহ", href: "/products" },
+    { label: "নীতি", href: "/certifications" },
+    { label: "গুণমান", href: "/quality" },
+    { label: "আমাদের সম্পর্কে", href: "/about" },
+    { label: "যোগাযোগ", href: "/contact" },
+  ];
 
 
   return (
@@ -31,13 +31,13 @@ export function Header() {
 
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors tracking-wider"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -63,14 +63,14 @@ export function Header() {
           <div className="md:hidden pb-4 border-t border-border">
             <nav className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors pl-4 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <a
                 href="tel:+8801719634871"

@@ -28,7 +28,7 @@ export function Certifications() {
       className="border-y border-border bg-card py-10 md:py-12"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
             নীতি ও নির্ভরযোগ্যতা
           </h2>

@@ -2,7 +2,7 @@
 import { Hero } from "@/components/hero";
 import { Capabilities } from "@/components/capabilities";
 import { Quality } from "@/components/quality";
-import { Certifications } from "@/components/certifications";
+import  Certifications  from "./certifications/page";
 import { About } from "@/components/about";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/Layout/footer";
