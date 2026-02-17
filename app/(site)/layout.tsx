@@ -1,14 +1,13 @@
+import type { ReactNode } from "react";
+
 import { Header } from "@/Layout/header";
 import { Footer } from "@/Layout/footer";
-import { Products } from "@/components/products";
 
-export default function ProductsPage() {
+export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <main className="w-full">
       <Header />
-      <div className="pt-16">
-        <Products />
-      </div>
+      <div className="pt-16">{children}</div>
       <Footer />
     </main>
   );
