@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -65,8 +65,7 @@ const products: Product[] = [
     id: 4,
     title: "ডেমো স্পেয়ার পার্টস সেট",
     category: "খুচরা যন্ত্রাংশ",
-    shortDescription:
-      "হাই-গ্রেড ব্লেড, বেয়ারিং ও বেল্ট সহ ডেমো কম্বো সেট।",
+    shortDescription: "হাই-গ্রেড ব্লেড, বেয়ারিং ও বেল্ট সহ ডেমো কম্বো সেট।",
     fullDescription:
       "ওয়ার্কশপে দ্রুত রিপেয়ার নিশ্চিত করতে প্রয়োজনীয় পার্টস সেটের ডেমো বর্ণনা। প্রয়োজনমতো ভিন্ন ভিন্ন কম্বিনেশন দেখানো যাবে।",
     usage: "ডাউনটাইম কমাতে এবং জরুরি মেইনটেন্যান্সে দ্রুত সাপোর্টের জন্য।",
@@ -84,8 +83,7 @@ const products: Product[] = [
       "এখানে কাস্টম মেশিন প্রকল্পের ডেমো বর্ণনা দেখানো হয়েছে। বাস্তবে ডিজাইন টাইমলাইন, ডেলিভারি এবং টেস্টিং ধাপ যোগ করা হবে।",
     usage:
       "নতুন ইউনিট সেটআপ, উৎপাদন লাইন আপগ্রেড এবং নির্দিষ্ট কাজের জন্য কাস্টম প্রয়োজনে।",
-    serviceWarranty:
-      "ডেমো সাপোর্ট: প্রজেক্ট হ্যান্ডওভারের পর অন-কল গাইডেন্স।",
+    serviceWarranty: "ডেমো সাপোর্ট: প্রজেক্ট হ্যান্ডওভারের পর অন-কল গাইডেন্স।",
     priceInfo: "ডেমো কোটেশন: প্রয়োজন অনুযায়ী",
     image: "/nature.jpeg",
   },
@@ -138,23 +136,34 @@ function ProductDetails({
 
         <div className="grid gap-6 p-5 md:grid-cols-[0.95fr_1.05fr] md:p-7">
           <div className="relative h-60 overflow-hidden rounded-xl md:h-full">
-            <Image src={product.image} alt={product.title} fill className="object-cover" />
+            <Image
+              src={product.image}
+              alt={product.title}
+              fill
+              className="object-cover"
+            />
           </div>
 
           <div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-secondary">
               {product.category}
             </p>
-            <h3 className="text-2xl font-semibold text-foreground">{product.title}</h3>
+            <h3 className="text-2xl font-semibold text-foreground">
+              {product.title}
+            </h3>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
               {product.fullDescription}
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">ব্যবহার ক্ষেত্র:</span>{" "}
+              <span className="font-semibold text-foreground">
+                ব্যবহার ক্ষেত্র:
+              </span>{" "}
               {product.usage}
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">সার্ভিস/ওয়ারেন্টি:</span>{" "}
+              <span className="font-semibold text-foreground">
+                সার্ভিস/ওয়ারেন্টি:
+              </span>{" "}
               {product.serviceWarranty}
             </p>
             <p className="mt-4 flex items-center gap-2 text-base font-semibold text-primary">
@@ -167,7 +176,11 @@ function ProductDetails({
                 <a href="tel:+8801719634871">এখনই কল করুন</a>
               </Button>
               <Button asChild variant="outline">
-                <a href="https://wa.me/8801719634871" target="_blank" rel="noreferrer">
+                <a
+                  href="https://wa.me/8801719634871"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   হোয়াটসঅ্যাপ
                 </a>
               </Button>
@@ -185,16 +198,17 @@ export function Products() {
 
   const visibleProducts = useMemo(
     () => (showAll ? products : products.slice(0, 3)),
-    [showAll]
+    [showAll],
   );
 
   return (
-    <section id="products" className="py-16 md:py-20">
+    <section id="products" className="pb-12 pt-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 max-w-3xl text-center">
+        <div className="mx-auto mb-4 max-w-3xl text-center">
           <span className="inline-block rounded-full border border-primary/35 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-            Featured Works
+            নির্বাচিত কাজসমূহ
           </span>
+
           <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
             আমাদের জনপ্রিয় পণ্য ও সার্ভিস
           </h2>
@@ -225,11 +239,15 @@ export function Products() {
               </div>
 
               <div className="p-5">
-                <h3 className="text-xl font-semibold text-foreground">{product.title}</h3>
+                <h3 className="text-xl font-semibold text-foreground">
+                  {product.title}
+                </h3>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {product.shortDescription}
                 </p>
-                <p className="mt-4 text-sm font-semibold text-primary">{product.priceInfo}</p>
+                <p className="mt-4 text-sm font-semibold text-primary">
+                  {product.priceInfo}
+                </p>
 
                 <Button
                   variant="outline"
@@ -257,7 +275,10 @@ export function Products() {
           </Button>
         </div>
 
-        <ProductDetails product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        <ProductDetails
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
       </div>
     </section>
   );

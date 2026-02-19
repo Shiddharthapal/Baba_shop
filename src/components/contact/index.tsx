@@ -96,7 +96,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20">
+    <section id="contact" className="py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <span className="inline-block rounded-full border border-primary/35 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
@@ -129,7 +129,7 @@ export function Contact() {
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
                         {item.label}
                       </p>
                       <p className="mt-1 text-sm font-semibold text-foreground">{item.value}</p>

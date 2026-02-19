@@ -12,7 +12,7 @@ const highlights = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pb-20 pt-12 md:pb-24 md:pt-16">
+    <section className="relative overflow-hidden pb-12 pt-12 md:pt-16">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px]">
         <Image
           src="/image (5).jpg"

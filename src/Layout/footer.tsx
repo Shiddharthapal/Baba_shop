@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 const quickLinks = [
@@ -11,7 +11,7 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-border/70 bg-card/70 py-14 md:mt-20">
+    <footer className="mt-8 border-t border-border/70 bg-card/70 py-8 md:mt-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div className="space-y-4">
           <div>
@@ -57,17 +57,17 @@ export function Footer() {
             </li>
             <li className="flex items-start gap-2.5">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <span>info@duivaiengineering.com</span>
+              <span>shiddhartpal01355@gmail.com</span>
             </li>
             <li className="flex items-start gap-2.5">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <span>বাগেরহাট, খুলনা, মোরেলগঞ্জ সহ পার্শ্ববর্তী এলাকা</span>
+              <span>দাসপাড়া মোড়, বাগেরহাট-সদর, বাগেরহাট </span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-border/70 px-4 pt-6 text-xs text-muted-foreground sm:px-6 lg:px-8">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-border/70 px-4 pt-6 text-xs text-center text-muted-foreground sm:px-6 lg:px-8">
         © {new Date().getFullYear()} দুই ভাই ইঞ্জিনিয়ারিং ওয়ার্কশপ। সর্বস্বত্ব
         সংরক্ষিত।
       </div>

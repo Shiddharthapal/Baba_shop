@@ -19,8 +19,7 @@ const capabilities = [
   {
     icon: Wheat,
     title: "রাইস মিল মেশিন সলিউশন",
-    description:
-      "চাল প্রসেসিংয়ের জন্য উপযোগী মেশিন কনফিগারেশন।",
+    description: "চাল প্রসেসিংয়ের জন্য উপযোগী মেশিন কনফিগারেশন।",
   },
   {
     icon: Wrench,
@@ -31,8 +30,7 @@ const capabilities = [
   {
     icon: PackageCheck,
     title: "খুচরা যন্ত্রাংশ সরবরাহ",
-    description:
-      "প্রয়োজনীয় পার্টস দ্রুত সরবরাহ করে ডাউনটাইম কমাতে সহায়তা করি।",
+    description: "প্রয়োজনীয় পার্টস দ্রুত সরবরাহ করে ডাউনটাইম কমাতে সহায়তা করি।",
   },
   {
     icon: Settings2,
@@ -62,12 +60,13 @@ const capabilities = [
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className="py-16 md:py-20">
+    <section id="capabilities" className="py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 max-w-3xl text-center">
+        <div className="mx-auto mb-4 max-w-3xl text-center">
           <span className="inline-block rounded-full border border-secondary/35 bg-secondary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
-            Capability Stack
+            প্রযুক্তি ও দক্ষতা
           </span>
+
           <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
             আপনার কাজের জন্য সম্পূর্ণ মেশিন সাপোর্ট
           </h2>

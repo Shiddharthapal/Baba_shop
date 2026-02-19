@@ -19,7 +19,7 @@ const qualityFlow = [
 
 export function Quality() {
   return (
-    <section id="quality" className="py-16 ">
+    <section id="quality" className="py-12 ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="surface-panel glow-border relative h-80 overflow-hidden p-3 lg:h-[510px]">
