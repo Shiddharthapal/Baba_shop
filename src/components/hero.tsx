@@ -27,9 +27,18 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="rise-in">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-              <Wrench className="h-3.5 w-3.5" />
+            <span
+              className="relative inline-flex items-center gap-2 rounded-full
+              border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold 
+              uppercase tracking-[0.16em] text-primary"
+            >
+              <Wrench className="relative h-3.5 w-3.5" />
               ইন্ডাস্ট্রিয়াল সলিউশন পার্টনার
+              {/* Ping Dot */}
+              <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-primary"></span>
+              </span>
             </span>
 
             <h1 className="mt-6 text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
@@ -38,8 +47,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-              মেশিন সাপ্লাই থেকে রিপেয়ার, খুচরা যন্ত্রাংশ এবং পরবর্তী রক্ষণাবেক্ষণ
-              পর্যন্ত এক জায়গায় সম্পূর্ণ সার্ভিস।
+              মেশিন সাপ্লাই থেকে রিপেয়ার, খুচরা যন্ত্রাংশ এবং পরবর্তী
+              রক্ষণাবেক্ষণ পর্যন্ত এক জায়গায় সম্পূর্ণ সার্ভিস।
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -49,7 +58,12 @@ export function Hero() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-8">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8"
+              >
                 <Link href="/contact">যোগাযোগ করুন</Link>
               </Button>
             </div>
@@ -57,8 +71,12 @@ export function Hero() {
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {highlights.map((item) => (
                 <div key={item.label} className="surface-panel glow-border p-4">
-                  <p className="text-xl font-semibold text-foreground">{item.label}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
+                  <p className="text-xl font-semibold text-foreground">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {item.detail}
+                  </p>
                 </div>
               ))}
             </div>
