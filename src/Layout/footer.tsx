@@ -1,114 +1,76 @@
-﻿import { Phone, Mail, MapPin } from "lucide-react"
+import Link from "next/link";
+import { Mail, MapPin, Phone } from "lucide-react";
+
+const quickLinks = [
+  { label: "হোম", href: "/" },
+  { label: "পণ্য", href: "/products" },
+  { label: "গুণমান", href: "/quality" },
+  { label: "নীতি", href: "/certifications" },
+  { label: "যোগাযোগ", href: "/contact" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+    <footer className="mt-16 border-t border-border/70 bg-card/70 py-14 md:mt-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+        <div className="space-y-4">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">R</span>
-              </div>
-              <span className="text-white font-bold">ROBERTS</span>
-            </div>
-            <p className="text-muted-foreground text-sm">
-              Precision manufacturing solutions driven by excellence.
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
+              দুই ভাই ওয়ার্কশপ
             </p>
+            <h3 className="mt-2 text-2xl font-semibold text-foreground">
+              নির্ভরযোগ্য মেশিন সলিউশন
+            </h3>
           </div>
-
-          <div>
-            <h4 className="font-bold text-foreground mb-4">Company</h4>
-            <ul className="space-y-2">
-              {[
-                "About",
-                "Capabilities",
-                "Quality",
-                "Certifications",
-                "Contact",
-              ].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="text-muted-foreground hover:text-secondary text-sm transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-foreground mb-4">Resources</h4>
-            <ul className="space-y-2">
-              {["Capabilities", "Quality", "Certifications", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="text-muted-foreground hover:text-secondary text-sm transition-colors"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-secondary shrink-0" />
-                <a
-                  href="tel:+14195942712"
-                  className="text-muted-foreground hover:text-secondary text-sm transition-colors"
-                >
-                  (419)-594-2712
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-secondary shrink-0" />
-                <a
-                  href="mailto:info@roberts.com"
-                  className="text-muted-foreground hover:text-secondary text-sm transition-colors"
-                >
-                  info@roberts.com
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                <span className="text-muted-foreground text-sm">
-                  Manufacturing Facility
-                  <br />
-                  Ohio, USA
-                </span>
-              </li>
-            </ul>
-          </div>
+          <p className="max-w-md text-sm leading-6 text-muted-foreground">
+            কাঠ কাটার মেশিন, রাইস মিল মেশিন, রিপেয়ার ও খুচরা যন্ত্রাংশ সাপোর্টে
+            দ্রুত এবং বাস্তবভিত্তিক সার্ভিস।
+          </p>
         </div>
 
-        <div className="border-t border-border pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-sm">
-              (c) 2024 Roberts Manufacturing. All rights reserved.
-            </p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              {["Privacy Policy", "Terms of Service"].map((item) => (
-                <a
-                  key={item}
-                  href="#contact"
-                  className="text-muted-foreground hover:text-secondary text-sm transition-colors"
+        <div>
+          <h4 className="mb-4 text-base font-semibold text-foreground">
+            দ্রুত নেভিগেশন
+          </h4>
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+            {quickLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-muted-foreground transition-colors hover:text-primary"
                 >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="mb-4 text-base font-semibold text-foreground">যোগাযোগ</h4>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2.5">
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <a href="tel:+8801719634871" className="hover:text-primary">
+                01719-634871
+              </a>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span>info@duivaiengineering.com</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span>বাগেরহাট, খুলনা, মোরেলগঞ্জ সহ পার্শ্ববর্তী এলাকা</span>
+            </li>
+          </ul>
         </div>
       </div>
+
+      <div className="mx-auto mt-10 max-w-7xl border-t border-border/70 px-4 pt-6 text-xs text-muted-foreground sm:px-6 lg:px-8">
+        © {new Date().getFullYear()} দুই ভাই ইঞ্জিনিয়ারিং ওয়ার্কশপ। সর্বস্বত্ব
+        সংরক্ষিত।
+      </div>
     </footer>
-  )
+  );
 }

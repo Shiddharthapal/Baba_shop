@@ -1,76 +1,102 @@
-﻿import { CheckCircle2 } from "lucide-react";
+﻿import {
+  Drill,
+  Gauge,
+  PackageCheck,
+  Settings2,
+  ShieldCheck,
+  Wheat,
+  Wrench,
+  Zap,
+} from "lucide-react";
 
 const capabilities = [
   {
-    title: "গাছ / কাঠ কাটার মেশিন বিক্রয়",
+    icon: Drill,
+    title: "কাঠ কাটার মেশিন বিক্রয়",
     description:
-      "ওয়ার্কশপ ও ফার্নিচার ফ্যাক্টরির জন্য প্রয়োজনভিত্তিক মডেল নির্বাচন ও সাপোর্ট।",
+      "ওয়ার্কশপ ও ফার্নিচার ইউনিট অনুযায়ী কাস্টম ক্ষমতার মডেল বাছাই এবং সেটআপ।",
   },
   {
-    title: "চাল ভাঙা মেশিন সলিউশন",
+    icon: Wheat,
+    title: "রাইস মিল মেশিন সলিউশন",
     description:
-      "ক্ষুদ্র ও মাঝারি রাইস মিলের জন্য কার্যক্ষম, কম খরচে নির্ভরযোগ্য মেশিন সেটআপ।",
+      "চাল প্রসেসিংয়ের জন্য উপযোগী মেশিন কনফিগারেশন।",
   },
   {
-    title: "সুপারি কাঠার মেশিন",
-    description:
-      "দ্রুত, সমান এবং নিরাপদভাবে সুপারি কাটার জন্য শক্তিশালী মেশিন সরবরাহ ও সাপোর্ট।",
-  },
-  {
-    title: "চানাচুর, মোয়া ও বিস্কুট প্রসেসিং মেশিন",
-    description:
-      "চানাচুর, মোয়া ও বিস্কুট তৈরির জন্য উপযোগী মেশিন সেটআপ, ইনস্টলেশন এবং ব্যবহার নির্দেশনা।",
-  },
-  {
-    title: "মরিচ, হলুদ ও মসলা গুঁড়া করার মেশিন",
-    description:
-      "মরিচ, হলুদ ও বিভিন্ন মসলা দ্রুত এবং সমানভাবে গুঁড়া করার জন্য উপযোগী মেশিন ও সেটআপ সাপোর্ট।",
-  },
-  {
+    icon: Wrench,
     title: "অন-সাইট রিপেয়ার সার্ভিস",
     description:
-      "মোটর, ব্লেড, বেয়ারিং ও কন্ট্রোল ইউনিটের দ্রুত ডায়াগনস্টিক ও মেরামত সেবা।",
+      "মোটর, ব্লেড, বেয়ারিং ও কন্ট্রোল ইউনিটের দ্রুত ডায়াগনস্টিক ও সমাধান।",
   },
   {
-    title: "খুচরা যন্ত্রাংশ সাপোর্ট",
+    icon: PackageCheck,
+    title: "খুচরা যন্ত্রাংশ সরবরাহ",
     description:
-      "প্রয়োজনীয় স্পেয়ার পার্টস দ্রুত সরবরাহ করে ডাউনটাইম কমাতে সহায়তা করি।",
+      "প্রয়োজনীয় পার্টস দ্রুত সরবরাহ করে ডাউনটাইম কমাতে সহায়তা করি।",
   },
   {
-    title: "দ্রুত সার্ভিস ও ওয়ারেন্টি",
+    icon: Settings2,
+    title: "কাস্টম মেশিন ফ্যাব্রিকেশন",
     description:
-      "কাজভিত্তিক সার্ভিস কমিটমেন্ট, ফলো-আপ এবং বিক্রয়-পরবর্তী সহায়তা।",
+      "প্রোডাকশন লাইনের চাহিদা অনুযায়ী ডিজাইন, নির্মাণ ও ডেলিভারি সাপোর্ট।",
+  },
+  {
+    icon: Gauge,
+    title: "পারফরম্যান্স টেস্টিং",
+    description:
+      "সাইটভিত্তিক লোড ও পারফরম্যান্স টেস্ট করে ইউনিট হস্তান্তর করা হয়।",
+  },
+  {
+    icon: ShieldCheck,
+    title: "ওয়ারেন্টি ও ফলো-আপ",
+    description:
+      "কাজভিত্তিক ওয়ারেন্টি, ব্যবহার নির্দেশনা এবং পরবর্তী সার্ভিস কমিটমেন্ট।",
+  },
+  {
+    icon: Zap,
+    title: "দ্রুত রেসপন্স সাপোর্ট",
+    description:
+      "জরুরি কেসে প্রাধান্যভিত্তিক রেসপন্স ও প্রয়োজনমতো ফিল্ড ভিজিট সমন্বয়।",
   },
 ];
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className="bg-card pb-12">
+    <section id="capabilities" className="py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-            আমাদের সক্ষমতা
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <span className="inline-block rounded-full border border-secondary/35 bg-secondary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
+            Capability Stack
+          </span>
+          <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+            আপনার কাজের জন্য সম্পূর্ণ মেশিন সাপোর্ট
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            কাঠ কাটার মেশিন, রাইস মিল মেশিন এবং ইন্ডাস্ট্রিয়াল সার্ভিসে সম্পূর্ণ
-            সলিউশন, এক জায়গায়।
+          <p className="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
+            বিক্রয় থেকে ইনস্টলেশন, রিপেয়ার থেকে পার্টস সাপোর্ট পর্যন্ত প্রতিটি
+            ধাপে বাস্তবভিত্তিক সমাধান।
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 h-65 bg-[hsl(206,28%,11%)] p-5  custom-scrollbar">
-          {capabilities.map((capability) => (
-            <div key={capability.title} className="flex gap-4">
-              <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-secondary" />
-              <div>
-                <h3 className="mb-2 text-lg font-bold text-foreground">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {capabilities.map((capability) => {
+            const Icon = capability.icon;
+            return (
+              <article
+                key={capability.title}
+                className="surface-panel glow-border group h-full p-5 transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
                   {capability.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   {capability.description}
                 </p>
-              </div>
-            </div>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

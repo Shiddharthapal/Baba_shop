@@ -1,19 +1,22 @@
-﻿"use client"
+"use client";
 
-import { useEffect, useMemo, useState } from "react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowRight, CircleDollarSign, X } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 type Product = {
-  id: number
-  title: string
-  category: string
-  shortDescription: string
-  fullDescription: string
-  usage: string
-  serviceWarranty: string
-  priceInfo: string
-  image: string
-}
+  id: number;
+  title: string;
+  category: string;
+  shortDescription: string;
+  fullDescription: string;
+  usage: string;
+  serviceWarranty: string;
+  priceInfo: string;
+  image: string;
+};
 
 const products: Product[] = [
   {
@@ -86,81 +89,82 @@ const products: Product[] = [
     priceInfo: "ডেমো কোটেশন: প্রয়োজন অনুযায়ী",
     image: "/nature.jpeg",
   },
-]
+];
 
 function ProductDetails({
   product,
   onClose,
 }: {
-  product: Product | null
-  onClose: () => void
+  product: Product | null;
+  onClose: () => void;
 }) {
   useEffect(() => {
-    if (!product) return
+    if (!product) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose()
-    }
+      if (event.key === "Escape") onClose();
+    };
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = "hidden"
-    document.addEventListener("keydown", onKeyDown)
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener("keydown", onKeyDown)
-    }
-  }, [product, onClose])
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [product, onClose]);
 
-  if (!product) return null
+  if (!product) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
       <button
         type="button"
-        className="absolute inset-0 bg-black/60"
-        onClick={onClose}
         aria-label="মডাল বন্ধ করুন"
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        onClick={onClose}
       />
 
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={product.title}
-        className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl border border-border bg-background p-6 md:p-8"
-      >
+      <div className="surface-panel glow-border relative z-10 w-full max-w-4xl overflow-hidden">
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 text-sm font-semibold text-muted-foreground hover:text-foreground"
+          className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-background/80 text-muted-foreground hover:text-foreground"
+          aria-label="Close modal"
         >
-          বন্ধ করুন
+          <X className="h-4 w-4" />
         </button>
 
-        <div className="flex flex-col gap-6 md:flex-row md:items-start">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="h-52 w-full rounded-lg object-cover md:h-56 md:w-80"
-          />
+        <div className="grid gap-6 p-5 md:grid-cols-[0.95fr_1.05fr] md:p-7">
+          <div className="relative h-60 overflow-hidden rounded-xl md:h-full">
+            <Image src={product.image} alt={product.title} fill className="object-cover" />
+          </div>
 
-          <div className="flex-1">
-            <p className="mb-2 text-sm font-semibold text-secondary">{product.category}</p>
-            <h3 className="mb-4 text-2xl font-bold text-foreground">{product.title}</h3>
-            <p className="mb-3 text-muted-foreground">{product.fullDescription}</p>
-            <p className="mb-2 text-sm text-muted-foreground">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-secondary">
+              {product.category}
+            </p>
+            <h3 className="text-2xl font-semibold text-foreground">{product.title}</h3>
+            <p className="mt-4 text-sm leading-6 text-muted-foreground">
+              {product.fullDescription}
+            </p>
+            <p className="mt-3 text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">ব্যবহার ক্ষেত্র:</span>{" "}
               {product.usage}
             </p>
-            <p className="mb-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">সার্ভিস/ওয়ারেন্টি:</span>{" "}
               {product.serviceWarranty}
             </p>
-            <p className="mb-5 text-sm font-medium text-foreground">{product.priceInfo}</p>
+            <p className="mt-4 flex items-center gap-2 text-base font-semibold text-primary">
+              <CircleDollarSign className="h-4 w-4" />
+              {product.priceInfo}
+            </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Button asChild variant="secondary">
-                <a href="tel:+8801719634871">কল করুন</a>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild>
+                <a href="tel:+8801719634871">এখনই কল করুন</a>
               </Button>
               <Button asChild variant="outline">
                 <a href="https://wa.me/8801719634871" target="_blank" rel="noreferrer">
@@ -172,82 +176,89 @@ function ProductDetails({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function Products() {
-  const [showAll, setShowAll] = useState(false)
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [showAll, setShowAll] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const visibleProducts = useMemo(
     () => (showAll ? products : products.slice(0, 3)),
     [showAll]
-  )
+  );
 
   return (
-    <section id="products" className="py-16 md:py-24 bg-card">
+    <section id="products" className="py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
-            আমাদের পণ্য ও সার্ভিস
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <span className="inline-block rounded-full border border-primary/35 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            Featured Works
+          </span>
+          <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+            আমাদের জনপ্রিয় পণ্য ও সার্ভিস
           </h2>
-          <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
-            কাঠ কাটার মেশিন, চাল ভাঙা মেশিন এবং ইন্ডাস্ট্রিয়াল রিপেয়ার সার্ভিসে
-            নির্ভরযোগ্য সমাধান।
+          <p className="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
+            ডেমো কন্টেন্টের জায়গায় আপনার আসল পণ্যের স্পেসিফিকেশন, মূল্য ও
+            ওয়ারেন্টি তথ্য যোগ করলেই এই সেকশন live-ready হয়ে যাবে।
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {visibleProducts.map((product) => (
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {visibleProducts.map((product, index) => (
             <article
               key={product.id}
-              className="overflow-hidden rounded-xl border border-border bg-background"
+              className="surface-panel glow-border group overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+              style={{ animationDelay: `${index * 70}ms` }}
             >
-              <img
-                src={product.image}
-                alt={product.title}
-                className="h-44 w-full object-cover"
-              />
-
-              <div className="p-5">
-                <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-secondary">
+              <div className="relative h-52 overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/85 to-transparent" />
+                <p className="absolute bottom-3 left-3 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-secondary">
                   {product.category}
                 </p>
-                <h3 className="mb-2 text-lg font-bold text-foreground">{product.title}</h3>
-                <p className="mb-4 text-sm text-muted-foreground">
+              </div>
+
+              <div className="p-5">
+                <h3 className="text-xl font-semibold text-foreground">{product.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {product.shortDescription}
                 </p>
-                <p className="mb-4 text-xs font-medium text-foreground">{product.priceInfo}</p>
+                <p className="mt-4 text-sm font-semibold text-primary">{product.priceInfo}</p>
 
                 <Button
                   variant="outline"
-                  className="w-full"
+                  className="mt-5 w-full rounded-xl"
                   onClick={() => setSelectedProduct(product)}
                 >
-                  বিস্তারিত
+                  বিস্তারিত দেখুন
+                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-9 flex justify-center">
           <Button
             variant="secondary"
+            className="rounded-full px-7"
             onClick={() => {
-              setShowAll((prev) => !prev)
-              setSelectedProduct(null)
+              setShowAll((previous) => !previous);
+              setSelectedProduct(null);
             }}
           >
             {showAll ? "কম দেখুন" : "সব দেখুন"}
           </Button>
         </div>
 
-        <ProductDetails
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
+        <ProductDetails product={selectedProduct} onClose={() => setSelectedProduct(null)} />
       </div>
     </section>
-  )
+  );
 }

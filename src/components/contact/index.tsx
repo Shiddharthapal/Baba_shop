@@ -1,14 +1,8 @@
 "use client";
 
 import { type ChangeEvent, type FormEvent, useState } from "react";
-import {
-  Clock3,
-  Loader2,
-  MapPin,
-  MessageCircle,
-  Phone,
-  ShieldCheck,
-} from "lucide-react";
+import { Clock3, Loader2, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 
 const contactMethods = [
@@ -55,9 +49,7 @@ export function Contact() {
   >("idle");
   const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormData((previous) => ({ ...previous, [name]: value }));
   };
@@ -97,249 +89,209 @@ export function Contact() {
       setFormData(initialFormState);
     } catch (error) {
       const message =
-        error instanceof Error
-          ? error.message
-          : "সার্ভারে সমস্যা হয়েছে। পরে চেষ্টা করুন।";
+        error instanceof Error ? error.message : "সার্ভারে সমস্যা হয়েছে। পরে চেষ্টা করুন।";
       setSubmitState("error");
       setSubmitMessage(message);
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="border-t border-border bg-card py-16 md:py-24"
-    >
+    <section id="contact" className="py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-start gap-10 lg:grid-cols-2">
-          <div>
-            <span className="mb-4 inline-block rounded-full bg-secondary/15 px-4 py-2 text-sm font-semibold text-secondary">
-              যোগাযোগ
-            </span>
-            <h2 className="mb-5 text-3xl font-bold text-foreground md:text-4xl">
-              সার্ভিস বা কোটেশন দরকার?
-            </h2>
-            <p className="mb-8 text-lg text-muted-foreground">
-              কাঠ কাটার মেশিন, চাল ভাঙা মেশিন কিংবা অন্যান্য প্রসেসিং ইউনিটের
-              বিক্রয় ও রিপেয়ার সার্ভিসের জন্য সরাসরি যোগাযোগ করুন। সমস্যার ধরন
-              জানালে দ্রুত পরবর্তী ধাপ জানিয়ে দেওয়া হবে।
-            </p>
-
-            <div className="space-y-4">
-              {contactMethods.map((item) => {
-                const Icon = item.icon;
-                const external = item.href.startsWith("http");
-
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target={external ? "_blank" : undefined}
-                    rel={external ? "noreferrer" : undefined}
-                    className="flex items-center justify-between rounded-lg border border-border bg-background p-4 transition-colors hover:border-secondary"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/15">
-                        <Icon className="h-5 w-5 text-secondary" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wide text-secondary">
-                          {item.label}
-                        </p>
-                        <p className="text-sm font-semibold text-foreground">
-                          {item.value}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-xs font-medium text-muted-foreground">
-                      যোগাযোগ করুন
-                    </span>
-                  </a>
-                );
-              })}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild variant="secondary">
-                <a href="tel:+8801719634871">এখনই কল করুন</a>
-              </Button>
-              <Button asChild variant="outline">
-                <a
-                  href="https://wa.me/8801886634861"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  হোয়াটসঅ্যাপে মেসেজ
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-border bg-background p-6 md:p-8">
-            <h3 className="mb-6 text-xl font-bold text-foreground">
-              সাপোর্ট তথ্য
-            </h3>
-
-            <div className="mb-5 flex items-start gap-3">
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">
-                  সার্ভিস এলাকা
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  বাগেরহাট, খুলনা, মোরেলগঞ্জ, রায়েন্দা, শরণখোলা, পিরোজপুর,
-                  ফকিরহাট, রামপাল, কচুয়া, মঠবাড়িয়া (প্রয়োজনভিত্তিক সাপোর্ট)
-                </p>
-              </div>
-            </div>
-
-            <div className="mb-6 flex items-start gap-3">
-              <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">
-                  সাপোর্ট সময়
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  শনি - বৃহস্পতিবার: সকাল ৮ টা - রাত ১০ টা
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  শুক্রবার: সকাল ১০ টা - বিকেল ৪ টা
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {supportPoints.map((point) => (
-                <div key={point} className="flex items-start gap-3">
-                  <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
-                  <p className="text-sm text-muted-foreground">{point}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <span className="inline-block rounded-full border border-primary/35 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            যোগাযোগ
+          </span>
+          <h2 className="mt-4 text-3xl font-semibold text-foreground md:text-4xl">
+            সার্ভিস বা কোটেশন দরকার?
+          </h2>
+          <p className="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
+            আপনার প্রয়োজন জানালে দ্রুত টেকনিক্যাল টিম থেকে পরবর্তী ধাপ জানানো হবে।
+          </p>
         </div>
 
-        <div className="mt-12 rounded-xl border border-border bg-background p-6 md:p-8">
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold text-foreground">মেসেজ বক্স</h3>
-            <p className="mt-2 text-muted-foreground">
-              আপনার প্রয়োজন লিখে পাঠান।
-            </p>
+        <div className="grid items-start gap-8 lg:grid-cols-2">
+          <div className="space-y-5">
+            {contactMethods.map((item) => {
+              const Icon = item.icon;
+              const external = item.href.startsWith("http");
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noreferrer" : undefined}
+                  className="surface-panel glow-border flex items-center justify-between p-5 transition-transform hover:-translate-y-0.5"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
+                        {item.label}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-foreground">{item.value}</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-medium text-muted-foreground">যোগাযোগ করুন</span>
+                </a>
+              );
+            })}
+
+            <div className="surface-panel p-6">
+              <h3 className="text-xl font-semibold text-foreground">সাপোর্ট তথ্য</h3>
+
+              <div className="mt-5 space-y-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">যোগাযোগ</p>
+                    <p className="text-sm leading-6 text-muted-foreground">
+                      বাগেরহাট
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Clock3 className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">সাপোর্ট সময়</p>
+                    <p className="text-sm text-muted-foreground">
+                      শনি - বৃহস্পতিবার: সকাল ৮ টা - রাত ১০ টা
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      শুক্রবার: সকাল ১০ টা - বিকেল ৪ টা
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  {supportPoints.map((point) => (
+                    <div key={point} className="flex items-start gap-2.5">
+                      <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-secondary" />
+                      <p className="text-sm text-muted-foreground">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 flex flex-col">
-            <div className="grid gap-4 md:grid-cols-2">
-              <label className="space-y-2">
-                <span className="text-sm font-medium text-foreground">নাম</span>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
+          <div className="surface-panel glow-border p-6 md:p-7">
+            <h3 className="text-2xl font-semibold text-foreground">মেসেজ বক্স</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              আপনার সমস্যা বা প্রয়োজন সংক্ষেপে লিখে পাঠান।
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              <div className="grid gap-4 md:grid-cols-2">
+                <label className="space-y-2">
+                  <span className="text-sm font-medium text-foreground">নাম</span>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-xl border border-border bg-background/70 px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                    placeholder="আপনার নাম"
+                  />
+                </label>
+
+                <label className="space-y-2">
+                  <span className="text-sm font-medium text-foreground">মোবাইল নাম্বার</span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-xl border border-border bg-background/70 px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                    placeholder="01XXXXXXXXX"
+                  />
+                </label>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <label className="space-y-2">
+                  <span className="text-sm font-medium text-foreground">ইমেইল (ঐচ্ছিক)</span>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-border bg-background/70 px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                    placeholder="name@example.com"
+                  />
+                </label>
+
+                <label className="space-y-2">
+                  <span className="text-sm font-medium text-foreground">বিষয় (ঐচ্ছিক)</span>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-border bg-background/70 px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                    placeholder="যেমন: রাইস মিল মেশিন সার্ভিস"
+                  />
+                </label>
+              </div>
+
+              <label className="block space-y-2">
+                <span className="text-sm font-medium text-foreground">মেসেজ</span>
+                <textarea
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-secondary"
-                  placeholder="আপনার নাম"
+                  minLength={10}
+                  maxLength={500}
+                  rows={5}
+                  className="w-full rounded-xl border border-border bg-background/70 px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                  placeholder="আপনার সমস্যা বা প্রয়োজন বিস্তারিত লিখুন..."
                 />
+                <p
+                  className={`text-right text-xs ${
+                    formData.message.length >= 500 ? "text-red-500" : "text-muted-foreground"
+                  }`}
+                >
+                  {formData.message.length}/500
+                </p>
               </label>
 
-              <label className="space-y-2">
-                <span className="text-sm font-medium text-foreground">
-                  মোবাইল নাম্বার
-                </span>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-secondary"
-                  placeholder="01XXXXXXXXX"
-                />
-              </label>
-            </div>
+              {submitMessage ? (
+                <p
+                  className={
+                    submitState === "success"
+                      ? "text-sm font-medium text-emerald-400"
+                      : "text-sm font-medium text-red-400"
+                  }
+                >
+                  {submitMessage}
+                </p>
+              ) : null}
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <label className="space-y-2">
-                <span className="text-sm font-medium text-foreground">
-                  ইমেইল (ঐচ্ছিক)
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-secondary"
-                  placeholder="name@example.com"
-                />
-              </label>
-
-              <label className="space-y-2">
-                <span className="text-sm font-medium text-foreground">
-                  বিষয় (ঐচ্ছিক)
-                </span>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-secondary"
-                  placeholder="যেমন: রাইস মিল মেশিন সার্ভিস"
-                />
-              </label>
-            </div>
-
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-foreground">মেসেজ</span>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                minLength={10}
-                maxLength={500}
-                rows={5}
-                className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm outline-none transition-colors focus:border-secondary"
-                placeholder="আপনার সমস্যা বা প্রয়োজন বিস্তারিত লিখুন..."
-              />
-              <p
-                className={`text-xs text-right  ${formData.message.length >= 500 ? "text-red-500" : "text-muted-foreground"}`}
+              <Button
+                type="submit"
+                disabled={submitState === "submitting"}
+                className="w-full rounded-xl md:w-auto"
               >
-                {formData.message.length}/500
-              </p>
-            </label>
-
-            {submitMessage ? (
-              <p
-                className={
-                  submitState === "success"
-                    ? "text-sm font-medium text-green-500"
-                    : "text-sm font-medium text-red-500"
-                }
-              >
-                {submitMessage}
-              </p>
-            ) : null}
-
-            <Button
-              type="submit"
-              variant="secondary"
-              disabled={submitState === "submitting"}
-              className="self-end"
-            >
-              {submitState === "submitting" ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  পাঠানো হচ্ছে...
-                </>
-              ) : (
-                "মেসেজ পাঠান"
-              )}
-            </Button>
-          </form>
+                {submitState === "submitting" ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    পাঠানো হচ্ছে...
+                  </>
+                ) : (
+                  "মেসেজ পাঠান"
+                )}
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-
