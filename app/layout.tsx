@@ -1,28 +1,29 @@
-﻿import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata } from "next";
+import { Manrope, Sora } from "next/font/google";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist" })
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
+const fontBody = Manrope({ subsets: ["latin"], variable: "--font-body" });
+const fontDisplay = Sora({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "Roberts Manufacturing - Precision Industrial Solutions",
+  title: "দুই ভাই ইঞ্জিনিয়ারিং ওয়ার্কশপ",
   description:
-    "Dedicated to service, driven by excellence. Better, faster, smarter manufacturing solutions.",
-  generator: "v0.app",
-}
+    "কাঠ কাটার, রাইস মিল ও ইন্ডাস্ট্রিয়াল সার্ভিসের নির্ভরযোগ্য ও দ্রুত সমাধান।",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body
+        className={`${fontBody.variable} ${fontDisplay.variable} font-sans antialiased`}
+      >
         {children}
       </body>
     </html>
-  )
+  );
 }
